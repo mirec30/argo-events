@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: github-push-sensor
+  namespace: argo-events
+spec:
+  dependencies:
+    - name: github-push
+      eventSourceName: github
+      eventName: example
+  triggers:
+    - template:
+        name: argo-workflow-trigger
+        argoWorkflow:
+          group: argoproj.io
+          version: v1
+          resource: workflows
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1
+              kind: Workflow
+              metadata:
+                generateName: github-push-workflow-
+                namespace: argo
+              spec:
+                entrypoint: whalesay
+                templates:
+                  - name: whalesay
+                    container:
+                      image: docker/whalesay
+                      command: [cowsay]
+                      args: ["Webhook received!"]

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: github
+  namespace: argo-events
+spec:
+  github:
+    example:
+      repositories:
+        - owner: tvoje-github-meno
+          repo: tvoje-repo
+      webhook:
+        endpoint: /push
+        port: 12000
+        method: POST
+      events:
+        - push
+      webhookSecret:
+        name: github-secret
+        key: secret

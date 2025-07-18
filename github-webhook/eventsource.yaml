@@ -5,16 +5,15 @@ metadata:
   namespace: argo-events
 spec:
   github:
-    example:
-      repositories:
-        - owner: tvoje-github-meno
-          repo: tvoje-repo
+    push:
       webhook:
         endpoint: /push
-        port: 12000
         method: POST
+        port: 12000
+        secret:
+          name: github-secret
+          key: secret
       events:
         - push
-      webhookSecret:
-        name: github-secret
-        key: secret
+      repository: mirec30/argo-test
+      insecure: true

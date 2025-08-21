@@ -5,9 +5,9 @@ namespace: argo-events
 
 resources:
   - namespace.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/base/crds/eventbus-crd.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/base/crds/eventsource-crd.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/base/crds/sensor-crd.yaml
+  - https://github.com/argoproj/argo-events/raw/stable/manifests/base/crds/eventbus-crd.yaml
+  - https://github.com/argoproj/argo-events/raw/stable/manifests/base/crds/eventsource-crd.yaml
+  - https://github.com/argoproj/argo-events/raw/stable/manifests/base/crds/sensor-crd.yaml
   - controller/deployment.yaml
   - rbac/serviceaccount.yaml
   - rbac/rolebinding.yaml

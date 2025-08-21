@@ -5,8 +5,4 @@ namespace: argo-events
 
 resources:
   - namespace.yaml
-  - https://github.com/argoproj/argo-events/manifests/base/crds?ref=stable
-  - controller/deployment.yaml
-  - rbac/serviceaccount.yaml
-  - rbac/rolebinding.yaml
-  - eventbus/default-eventbus.yaml
+  - https://github.com/argoproj/argo-events/manifests/cluster-install?ref=stable
